@@ -16,11 +16,11 @@ body.cur-hover #cur-ring{width:52px;height:52px;opacity:1;}
 body.cur-hover #cur-dot{transform:translate(-50%,-50%) scale(0);}
 
 header{
-  position:fixed;top:0;left:0;right:0;z-index:900;height:56px;
-  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
-  padding:0 clamp(20px,4vw,52px);
+  position:fixed;top:0;left:0;right:0;z-index:900;height:80px;background:#63b3ed;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:start;
+  padding:14px clamp(20px,4vw,52px) 0;
 }
-.hdr-logo{display:flex;align-items:center;text-decoration:none;margin-left:-32px;margin-top:-9px;}
+.hdr-logo{display:flex;align-items:center;text-decoration:none;margin-left:-32px;margin-top:0;}
 .hdr-logo img{width:122px;height:122px;object-fit:contain;}
 nav.hdr-nav{display:flex;align-items:center;gap:clamp(24px,3.5vw,52px);}
 nav.hdr-nav a{
@@ -48,7 +48,7 @@ nav.hdr-nav a:hover{opacity:.55}
 /* CONTACTO */
 .contacto{
   flex:1;
-  padding:calc(56px + clamp(50px,7vw,90px)) clamp(24px,6vw,80px) clamp(40px,5vw,70px);
+  padding:calc(80px + clamp(50px,7vw,90px)) clamp(24px,6vw,80px) clamp(40px,5vw,70px);
   display:flex;
   flex-direction:column;
   justify-content:space-between;
