@@ -28,6 +28,15 @@ nav.hdr-nav a{
   letter-spacing:.03em;text-decoration:none;color:#fff;transition:opacity .2s;
 }
 nav.hdr-nav a:hover{opacity:.55}
+.nav-proyectos{position:relative;}
+.nav-proy-btn{font-family:'Inter',sans-serif;font-size:13px;font-weight:300;letter-spacing:.03em;color:#fff;background:none;border:none;cursor:pointer;padding:0;transition:opacity .2s;}
+.nav-proy-btn:hover{opacity:.55;}
+.proy-dropdown{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:rgba(20,20,30,.92);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:6px 0;min-width:220px;visibility:hidden;opacity:0;transition:opacity .2s,visibility .2s;z-index:999;}
+.nav-proyectos.open .proy-dropdown{visibility:visible;opacity:1;}
+.proy-item{display:flex;align-items:center;gap:10px;padding:9px 16px;font-family:'Inter',sans-serif;font-size:12px;font-weight:300;letter-spacing:.05em;color:#fff;text-decoration:none;white-space:nowrap;background:none;border:none;width:100%;cursor:pointer;transition:background .15s;}
+.proy-item:hover{background:rgba(255,255,255,.08);}
+.proy-item .proy-tag{font-size:9px;letter-spacing:.1em;text-transform:uppercase;opacity:.4;margin-left:auto;}
+.proy-divider{height:1px;background:rgba(255,255,255,.1);margin:4px 0;}
 .hdr-lang{
   display:flex;justify-content:flex-end;align-items:center;gap:5px;
   font-family:'Inter',sans-serif;font-size:13px;font-weight:300;
@@ -147,7 +156,18 @@ footer{
   </a>
   <nav class="hdr-nav">
     <a href="sobre-mi.html">sobre mí</a>
-    <a href="retanima.html">proyectos</a>
+    <span class="nav-proyectos" id="navProy">
+      <button class="nav-proy-btn">proyectos</button>
+      <div class="proy-dropdown">
+        <a class="proy-item" href="PUNKED - Galeria.html">PUNKED <span class="proy-tag">editorial</span></a>
+        <a class="proy-item" href="Silvestre - Galeria.html">SILVESTRE <span class="proy-tag">editorial</span></a>
+        <a class="proy-item" href="MundosFragmentados.html">MUNDOS FRAGMENTADOS <span class="proy-tag">editorial</span></a>
+        <div class="proy-divider"></div>
+        <a class="proy-item" href="retanima.html">TEAM VIDEOCLIP <span class="proy-tag">video</span></a>
+        <a class="proy-item" href="retanima.html">ROTOSCOPIA — ANIMACIÓN 2D <span class="proy-tag">video</span></a>
+        <a class="proy-item" href="retanima.html">REGRESO INTERESTELAR <span class="proy-tag">video</span></a>
+      </div>
+    </span>
     <a href="contacto.html">contacto</a>
   </nav>
   <button class="hdr-lang">
@@ -207,6 +227,9 @@ let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;curDot.style.left=mx+'px';curDot.style.top=my+'px';});
 document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('cur-hover'));el.addEventListener('mouseleave',()=>document.body.classList.remove('cur-hover'));});
 (function a(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;curRing.style.left=rx+'px';curRing.style.top=ry+'px';requestAnimationFrame(a);})();
+const navProy=document.getElementById('navProy');
+navProy.addEventListener('click',e=>{e.stopPropagation();navProy.classList.toggle('open');});
+document.addEventListener('click',()=>navProy.classList.remove('open'));
 </script>
 </body>
 </html>

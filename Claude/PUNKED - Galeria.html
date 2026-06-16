@@ -21,6 +21,15 @@ header{position:fixed;top:0;left:0;right:0;z-index:900;height:56px;display:grid;
 nav.hdr-nav{display:flex;align-items:center;gap:clamp(24px,3.5vw,52px);}
 nav.hdr-nav a{font-family:'Inter',sans-serif;font-size:13px;font-weight:300;letter-spacing:.03em;text-decoration:none;color:#fff;transition:opacity .2s;}
 nav.hdr-nav a:hover{opacity:.55}
+.nav-proyectos{position:relative;}
+.nav-proy-btn{font-family:'Inter',sans-serif;font-size:13px;font-weight:300;letter-spacing:.03em;color:#fff;background:none;border:none;cursor:pointer;padding:0;transition:opacity .2s;}
+.nav-proy-btn:hover{opacity:.55;}
+.proy-dropdown{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:rgba(20,20,30,.92);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:6px 0;min-width:220px;visibility:hidden;opacity:0;transition:opacity .2s,visibility .2s;z-index:999;}
+.nav-proyectos.open .proy-dropdown{visibility:visible;opacity:1;}
+.proy-item{display:flex;align-items:center;gap:10px;padding:9px 16px;font-family:'Inter',sans-serif;font-size:12px;font-weight:300;letter-spacing:.05em;color:#fff;text-decoration:none;white-space:nowrap;background:none;border:none;width:100%;cursor:pointer;transition:background .15s;}
+.proy-item:hover{background:rgba(255,255,255,.08);}
+.proy-item .proy-tag{font-size:9px;letter-spacing:.1em;text-transform:uppercase;opacity:.4;margin-left:auto;}
+.proy-divider{height:1px;background:rgba(255,255,255,.1);margin:4px 0;}
 .hdr-lang{display:flex;justify-content:flex-end;align-items:center;gap:5px;font-family:'Inter',sans-serif;font-size:13px;font-weight:300;letter-spacing:.03em;color:#fff;background:none;border:none;padding:0;}
 .hdr-lang span.active{font-weight:600}.hdr-lang .sep{opacity:.4}
 
@@ -67,9 +76,20 @@ nav.hdr-nav a:hover{opacity:.55}
 <header>
   <a href="retanima.html" class="hdr-logo"><img src="../home/reduccion de logo.png" alt="retánima"></a>
   <nav class="hdr-nav">
-    <a href="../Claude/sobre-mi.html">sobre mí</a>
-    <a href="retanima.html">proyectos</a>
-    <a href="../Claude/contacto.html">contacto</a>
+    <a href="sobre-mi.html">sobre mí</a>
+    <span class="nav-proyectos" id="navProy">
+      <button class="nav-proy-btn">proyectos</button>
+      <div class="proy-dropdown">
+        <a class="proy-item" href="PUNKED - Galeria.html">PUNKED <span class="proy-tag">editorial</span></a>
+        <a class="proy-item" href="Silvestre - Galeria.html">SILVESTRE <span class="proy-tag">editorial</span></a>
+        <a class="proy-item" href="MundosFragmentados.html">MUNDOS FRAGMENTADOS <span class="proy-tag">editorial</span></a>
+        <div class="proy-divider"></div>
+        <a class="proy-item" href="retanima.html">TEAM VIDEOCLIP <span class="proy-tag">video</span></a>
+        <a class="proy-item" href="retanima.html">ROTOSCOPIA — ANIMACIÓN 2D <span class="proy-tag">video</span></a>
+        <a class="proy-item" href="retanima.html">REGRESO INTERESTELAR <span class="proy-tag">video</span></a>
+      </div>
+    </span>
+    <a href="contacto.html">contacto</a>
   </nav>
   <button class="hdr-lang"><span class="active">ES</span><span class="sep">/</span><span>EN</span></button>
 </header>
@@ -79,50 +99,50 @@ nav.hdr-nav a:hover{opacity:.55}
   <img class="bg" src="assets/FondoPunked.jpg" alt="">
 
   <!-- 1 · Portada mockup -->
-  <div class="item" style="left:50%;top:19%;width:41%">
+  <div class="item" style="left:50%;top:17%;width:41%">
     <img src="../PUNKED/mockups/PortadaMockup.jpg" alt="Portada PUNKED">
   </div>
 
   <!-- 2 · Doble-paganos mockup -->
-  <div class="item" style="left:4%;top:39%;width:44%">
+  <div class="item" style="left:4%;top:35%;width:44%">
     <img src="uploads/DobleViMockup.png" alt="Los Años Paganos">
   </div>
 
   <!-- 3 · Vinyl -->
-  <div class="item" style="left:54%;top:40%;width:36%">
+  <div class="item" style="left:54%;top:35%;width:36%">
     <img src="../PUNKED/mockups/ViniloMockup.png" alt="Vinilo PUNKED">
   </div>
 
   <!-- 4 · Fanart -->
-  <div class="item" style="left:4%;top:51%;width:43%">
+  <div class="item" style="left:4%;top:48%;width:43%">
     <img src="uploads/FanartMockup.png" alt="Fanart Vivienne Westwood">
   </div>
 
   <!-- 5 · Programa -->
-  <div class="item" style="left:4%;top:63%;width:29%">
-    <img src="c:\Users\Vic\Desktop\retanima\Claude\assets\punked\hi-programa.png" alt="Nacidas para romper">
+  <div class="item" style="left:4%;top:58%;width:29%">
+    <img src="../PUNKED/mockups/hi-programa.png" alt="Nacidas para romper">
   </div>
 
   <!-- 6 · Kings Road -->
-  <div class="item" style="left:38%;top:63%;width:55%">
-    <img src="c:\Users\Vic\Desktop\retanima\Claude\assets\punked\hi-kings.png" alt="430 King's Road">
+  <div class="item" style="left:38%;top:59%;width:55%">
+    <img src="../PUNKED/mockups/hi-kings.png" alt="430 King's Road">
   </div>
 
   <!-- 7 · She tore apart -->
-  <div class="item" style="left:4%;top:77%;width:40%">
-    <img src="c:\Users\Vic\Desktop\retanima\Claude\assets\punked\hi-shetore.png" alt="She tore apart">
+  <div class="item" style="left:4%;top:72%;width:40%">
+    <img src="../PUNKED/mockups/hi-shetore.png" alt="She tore apart">
   </div>
 
   <!-- 8 · Bio -->
-  <div class="item" style="left:47%;top:77%;width:48%">
-    <img src="c:\Users\Vic\Desktop\retanima\Claude\assets\punked\hi-bio.png" alt="Vivienne — Biografía">
+  <div class="item" style="left:47%;top:71%;width:48%">
+    <img src="../PUNKED/mockups/hi-bio.png" alt="Vivienne — Biografía">
   </div>
 
   <!-- 9 · REEL (video) -->
-  <div class="item" style="left:4%;top:87%;width:31%">
+  <div class="item" style="left:4%;top:82%;width:31%">
     <div class="reel-wrap" id="reelBox">
       <span class="reel-lbl"><span class="dot"></span> Reel · PUNKED</span>
-      <video id="reelEl" src="assets/punked/reel11.mp4" muted loop playsinline preload="metadata"></video>
+      <video id="reelEl" src="../PUNKED/mockups/reel11.mp4" muted loop playsinline preload="metadata"></video>
       <div class="reel-play" id="reelPlay">
         <svg width="80" height="80" viewBox="0 0 80 80">
           <circle cx="40" cy="40" r="38"/>
@@ -133,8 +153,8 @@ nav.hdr-nav a:hover{opacity:.55}
   </div>
 
   <!-- 10 · Paganos flat -->
-  <div class="item" style="left:39%;top:87.5%;width:50%">
-    <img src="c:\Users\Vic\Desktop\retanima\Claude\assets\punked\hi-paganos-right.png" alt="Los Años Paganos">
+  <div class="item" style="left:39%;top:82%;width:43%">
+    <img src="../PUNKED/mockups/hi-paganos-right.png" alt="Los Años Paganos">
   </div>
 
 </div><!-- /stage -->
@@ -158,6 +178,11 @@ document.querySelectorAll('.item img').forEach(img=>{
 lb.addEventListener('click',closeLb);
 document.getElementById('lb-x').addEventListener('click',e=>{e.stopPropagation();closeLb();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();});
+
+// Dropdown proyectos
+const navProy=document.getElementById('navProy');
+navProy.addEventListener('click',e=>{e.stopPropagation();navProy.classList.toggle('open');});
+document.addEventListener('click',()=>navProy.classList.remove('open'));
 
 // Reel
 const vid = document.getElementById('reelEl');
