@@ -778,6 +778,13 @@ document.getElementById('proy-interestelar').addEventListener('click', () => {
   openVlb('../home/Multi3_TP2_RegresoInterestelar.mp4');
 });
 
+(function(){
+  const h = location.hash;
+  if(h === '#team') openVlb('../home/Team Videoclip.mp4');
+  else if(h === '#rotoscopia') openVlb('../home/MarcianoAnimacion.mp4');
+  else if(h === '#interestelar') openVlb('../home/Multi3_TP2_RegresoInterestelar.mp4');
+})();
+
 const elb = document.getElementById('elb');
 const elbImg = document.getElementById('elb-img');
 const elbLink = document.getElementById('elb-link');
