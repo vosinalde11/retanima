@@ -16,13 +16,16 @@ body.cur-hover #cur-ring{width:52px;height:52px;opacity:1;}
 body.cur-hover #cur-dot{transform:translate(-50%,-50%) scale(0);}
 
 header{
-  position:fixed;top:0;left:0;right:0;z-index:900;height:80px;background:#63b3ed;
-  display:grid;grid-template-columns:1fr auto 1fr;align-items:start;
-  padding:14px clamp(20px,4vw,52px) 0;
+  position:fixed;top:16px;left:50%;transform:translateX(-50%);
+  width:calc(100% - 48px);max-width:1300px;z-index:900;height:52px;
+  background:rgba(150,180,225,.50);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+  border:1px solid rgba(255,255,255,.14);border-radius:40px;box-shadow:0 0 40px rgba(0,0,0,.50);
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  padding:0 clamp(20px,4vw,40px);
 }
-.hdr-logo{display:flex;align-items:center;text-decoration:none;margin-left:-32px;margin-top:0;}
-.hdr-logo img{width:122px;height:122px;object-fit:contain;}
-nav.hdr-nav{display:flex;align-items:center;gap:clamp(24px,3.5vw,52px);}
+.hdr-logo{display:flex;align-items:center;text-decoration:none;}
+.hdr-logo img{width:50px;height:50px;object-fit:contain;}
+nav.hdr-nav{display:flex;align-items:center;gap:clamp(28px,3.5vw,54px);}
 nav.hdr-nav a{
   font-family:'Inter',sans-serif;font-size:13px;font-weight:300;
   letter-spacing:.03em;text-decoration:none;color:#fff;transition:opacity .2s;
@@ -152,7 +155,7 @@ footer{
 
 <header>
   <a href="retanima.html" class="hdr-logo">
-    <img src="../home/reduccion de logo.png" alt="retánima">
+    <img src="../home/ReduccionLogo.svg" alt="retánima">
   </a>
   <nav class="hdr-nav">
     <a href="sobre-mi.html">sobre mí</a>
