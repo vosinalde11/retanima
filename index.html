@@ -50,16 +50,18 @@ header{
   display:flex;
   align-items:center;
   text-decoration:none;
+  margin-top:-5px;
 }
 .hdr-logo img{
-  width:44px;
-  height:44px;
+  width:58px;
+  height:58px;
   object-fit:contain;
 }
 nav.hdr-nav{
   display:flex;
   align-items:center;
   gap:clamp(28px,3.5vw,54px);
+  margin-top:-5px;
 }
 nav.hdr-nav a{
   font-family:'Inter',sans-serif;
@@ -69,15 +71,20 @@ nav.hdr-nav a{
   text-decoration:none;
   color:#fff;
   transition:opacity .2s;
+  position:relative;
 }
+nav.hdr-nav a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:#fff;transition:width .2s ease;}
 nav.hdr-nav a:hover{opacity:.55}
+nav.hdr-nav a:hover::after{width:100%;}
 .nav-proyectos{position:relative;}
 .nav-proy-btn{
   font-family:'Inter',sans-serif;font-size:13px;font-weight:300;
   letter-spacing:.03em;color:#fff;background:none;border:none;
-  cursor:pointer;padding:0;transition:opacity .2s;
+  cursor:pointer;padding:0;transition:opacity .2s;position:relative;top:-0.5px;
 }
+.nav-proy-btn::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:#fff;transition:width .2s ease;}
 .nav-proy-btn:hover{opacity:.55;}
+.nav-proy-btn:hover::after{width:100%;}
 .proy-dropdown{
   position:absolute;
   top:calc(100% + 14px);
@@ -146,6 +153,7 @@ nav.hdr-nav a:hover{opacity:.55}
   background:none;
   border:none;
   padding:0;
+  margin-top:-5px;
   transition:opacity .2s;
 }
 .hdr-lang:hover{opacity:.55}
@@ -184,7 +192,7 @@ nav.hdr-nav a:hover{opacity:.55}
   gap:2px;
 }
 .portada-logo{
-  width:clamp(380px,70vw,960px);
+  width:clamp(280px,52vw,740px);
   object-fit:contain;
   display:block;
   margin-top:-150px;
@@ -550,7 +558,7 @@ footer{
 
 <header>
   <a href="#" class="hdr-logo">
-    <img src="../home/ReduccionLogo.svg" alt="retānima">
+    <img src="home/ReduccionLogo.svg" alt="retānima">
   </a>
   <nav class="hdr-nav">
     <a href="Claude/sobre-mi.html" data-i18n="nav.sobre">sobre mí</a>
@@ -580,7 +588,7 @@ footer{
     autoplay loop muted playsinline disablepictureinpicture
     preload="auto"></video>
   <div class="portada-text">
-    <img class="portada-logo" src="../home/logo.png" alt="retānima">
+    <img class="portada-logo" src="../home/logo.svg" alt="retānima">
     <p class="portada-sub" data-i18n="hero.sub">fragmentos que vuelven a la vida</p>
   </div>
 </section>
@@ -699,7 +707,7 @@ footer{
 <div id="cur-dot"></div>
 <div id="cur-ring"></div>
 <div id="loader">
-  <img id="loader-logo" src="../home/ReduccionLogo.svg" alt="retánima">
+  <img id="loader-logo" src="home/ReduccionLogo.svg" alt="retánima">
   <div id="loader-bar"></div>
 </div>
 
