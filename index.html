@@ -192,21 +192,12 @@ nav.hdr-nav a:hover::after{width:100%;}
   gap:2px;
 }
 .portada-logo{
-  width:clamp(280px,52vw,740px);
+  width:clamp(220px,42vw,550px);
   object-fit:contain;
   display:block;
-  margin-top:-150px;
+  margin-top:50px;
   margin-left:auto;
   margin-right:auto;
-}
-.portada-sub{
-  font-family:'Helvetica Neue','Helvetica',Arial,sans-serif;
-  font-weight:400;
-  font-size:clamp(24.5px,1.6vw,22px);
-  letter-spacing:.04em;
-  color:#fff;
-  opacity:.9;
-  margin-top:-235px;
 }
 
 /* TICKER */
@@ -588,8 +579,7 @@ footer{
     autoplay loop muted playsinline disablepictureinpicture
     preload="auto"></video>
   <div class="portada-text">
-    <img class="portada-logo" src="../home/logo.svg" alt="retānima">
-    <p class="portada-sub" data-i18n="hero.sub">fragmentos que vuelven a la vida</p>
+    <img class="portada-logo" src="../home/logoconbajada.svg" alt="retānima">
   </div>
 </section>
 
@@ -722,13 +712,11 @@ const i18n = {
     'nav.sobre': 'sobre mí',
     'nav.proyectos': 'proyectos',
     'nav.contacto': 'contacto',
-    'hero.sub': 'fragmentos que vuelven a la vida',
   },
   en: {
     'nav.sobre': 'about',
     'nav.proyectos': 'projects',
     'nav.contacto': 'contact',
-    'hero.sub': 'fragments that come back to life',
   }
 };
 
