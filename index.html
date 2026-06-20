@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>retánima</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Caveat:wght@400;500&display=swap">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;cursor:none!important}
 html,body{overflow-x:hidden}
@@ -279,6 +279,7 @@ nav.hdr-nav a:hover::after{width:100%;}
   background:#57729c;
   padding:clamp(60px,8vw,100px) 0;
   overflow:hidden;
+  min-height:105vh;
 }
 .editorial-head{
   padding:0 clamp(20px,4vw,52px);
@@ -306,24 +307,36 @@ nav.hdr-nav a:hover::after{width:100%;}
   box-shadow:0 12px 40px rgba(0,0,0,.3);
   transition:transform .3s cubic-bezier(.16,.84,.34,1),box-shadow .3s ease;
   position:relative;
+  animation:edDrift 2.2s steps(1) infinite;
 }
 .ed-card img{width:100%;display:block;}
-.ed-card:nth-child(1){width:clamp(110px,13vw,180px);transform:rotate(-8deg) translateY(22px);margin-right:-28px;z-index:1;}
-.ed-card:nth-child(2){width:clamp(130px,15vw,210px);transform:rotate(-4deg) translateY(10px);margin-right:-18px;z-index:2;}
-.ed-card:nth-child(3){width:clamp(170px,21vw,290px);transform:rotate(0deg) translateY(0);z-index:5;}
-.ed-card:nth-child(4){width:clamp(120px,14vw,190px);transform:rotate(3deg) translateY(16px);margin-left:-18px;z-index:2;}
-.ed-card:nth-child(5){width:clamp(145px,17vw,235px);transform:rotate(8deg) translateY(6px);margin-left:-28px;z-index:3;}
+.ed-card:nth-child(1){width:clamp(110px,13vw,180px);transform:rotate(-8deg) translateY(22px);margin-right:-28px;z-index:1;animation-delay:0s;animation-duration:2.6s;}
+.ed-card:nth-child(2){width:clamp(130px,15vw,210px);transform:rotate(-4deg) translateY(10px);margin-right:-18px;z-index:2;animation-delay:-0.7s;animation-duration:2.1s;}
+.ed-card:nth-child(3){width:clamp(170px,21vw,290px);transform:rotate(0deg) translateY(0);z-index:5;animation-delay:-1.3s;animation-duration:1.9s;}
+.ed-card:nth-child(4){width:clamp(120px,14vw,190px);transform:rotate(3deg) translateY(16px);margin-left:-18px;z-index:2;animation-delay:-0.4s;animation-duration:2.4s;}
+.ed-card:nth-child(5){width:clamp(145px,17vw,235px);transform:rotate(8deg) translateY(6px);margin-left:-28px;z-index:3;animation-delay:-1s;animation-duration:2s;}
 .ed-card:nth-child(1):hover{transform:rotate(-8deg) translateY(4px) scale(1.05);box-shadow:0 28px 60px rgba(0,0,0,.45);z-index:10;}
 .ed-card:nth-child(2):hover{transform:rotate(-4deg) translateY(-8px) scale(1.05);box-shadow:0 28px 60px rgba(0,0,0,.45);z-index:10;}
 .ed-card:nth-child(3):hover{transform:rotate(0deg) translateY(-14px) scale(1.05);box-shadow:0 28px 60px rgba(0,0,0,.45);z-index:10;}
 .ed-card:nth-child(4):hover{transform:rotate(3deg) translateY(-8px) scale(1.05);box-shadow:0 28px 60px rgba(0,0,0,.45);z-index:10;}
 .ed-card:nth-child(5):hover{transform:rotate(8deg) translateY(4px) scale(1.05);box-shadow:0 28px 60px rgba(0,0,0,.45);z-index:10;}
+@keyframes edDrift{
+  0%  {translate:0px 0px}
+  13% {translate:-3px -6px}
+  26% {translate:2px -10px}
+  39% {translate:-4px -4px}
+  52% {translate:3px -8px}
+  65% {translate:-2px -12px}
+  78% {translate:4px -5px}
+  91% {translate:-1px -9px}
+  100%{translate:0px 0px}
+}
 
 /* TEAM */
 .team-section{
   position:relative;
   width:100%;
-  min-height:520px;
+  min-height:105vh;
   overflow:hidden;
   display:flex;
   align-items:center;
@@ -421,60 +434,202 @@ nav.hdr-nav a:hover::after{width:100%;}
 }
 .team-btn:hover{opacity:.8}
 
-/* MODELOS 3D */
-.modelos{
-  background:#57729c;
-  min-height:70vh;
+/* SELECTOR */
+.selector{
+  background:#a03a10;
+  min-height:90vh;
   display:flex;
-  justify-content:center;
   align-items:center;
+  padding:clamp(60px,8vw,100px) clamp(32px,6vw,88px);
   overflow:hidden;
+  position:relative;
+  transition:background-color .7s ease;
 }
-.modelos-row{
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
-  width:60vw;
-}
-.modelo-item{
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
-  cursor:pointer;
-  flex:2;
-  transition:flex .4s cubic-bezier(.16,.84,.34,1), opacity .4s ease;
-  opacity:.55;
-  min-width:0;
-}
-.modelo-item.active{
-  flex:3;
-  opacity:1;
-}
-.modelo-item img{
+.sel-inner{
+  display:grid;
+  grid-template-columns:76px minmax(240px,370px) 1fr;
+  gap:clamp(28px,5vw,80px);
   width:100%;
-  object-fit:contain;
+  align-items:center;
+}
+.sel-thumbs{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  align-self:center;
+}
+.sel-thumb{
+  width:68px;
+  height:86px;
+  overflow:hidden;
+  cursor:pointer;
+  border:1.5px solid transparent;
+  opacity:.3;
+  transition:opacity .3s ease,border-color .3s ease,transform .25s ease;
+  flex:none;
+}
+.sel-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:top center;
   display:block;
-  transform:scale(1.5);
-  transform-origin:bottom center;
 }
-.modelo-item.active img{
-  transform:scale(1);
+.sel-thumb:hover{opacity:.6;transform:scale(1.07);}
+.sel-thumb.active{opacity:1;border-color:rgba(255,255,255,.45);}
+.sel-info{
+  position:relative;
+  color:#fff;
+  padding:clamp(8px,2vw,24px) 0;
 }
-.modelo-item:hover:not(.active){opacity:.75;}
+.sel-num{
+  font-family:'Helvetica Neue','Helvetica',Arial,sans-serif;
+  font-size:clamp(90px,13vw,180px);
+  font-weight:700;
+  letter-spacing:-.04em;
+  line-height:1;
+  opacity:.05;
+  position:absolute;
+  top:-28px;left:-12px;
+  pointer-events:none;
+  user-select:none;
+  color:#fff;
+}
+.sel-content{transition:opacity .35s ease,transform .35s ease;}
+.sel-content.out{opacity:0;transform:translateY(12px);}
+.sel-category{
+  font-family:'Inter',sans-serif;
+  font-size:10px;font-weight:300;
+  letter-spacing:.22em;text-transform:uppercase;
+  opacity:.42;margin-bottom:14px;display:block;
+}
+.sel-title{
+  font-family:'Helvetica Neue','Helvetica',Arial,sans-serif;
+  font-size:clamp(38px,5.5vw,76px);
+  font-weight:700;letter-spacing:-.03em;line-height:.88;
+  margin-bottom:22px;
+}
+.sel-desc{
+  font-family:'Inter',sans-serif;
+  font-size:clamp(12px,.95vw,14px);font-weight:300;
+  letter-spacing:.03em;line-height:1.7;
+  opacity:.55;max-width:300px;margin-bottom:30px;
+}
+.sel-link{
+  display:inline-block;
+  font-family:'Inter',sans-serif;
+  font-size:11px;font-weight:300;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:#fff;text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.28);
+  padding-bottom:3px;
+  transition:border-color .2s,opacity .2s;
+}
+.sel-link:hover{border-color:#fff;opacity:.8;}
+.sel-visual{
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  min-height:clamp(500px,80vh,900px);
+}
+.sel-img{
+  position:absolute;
+  bottom:-60px;
+  left:50%;
+  transform:translateX(-50%);
+  height:clamp(600px,95vh,1100px);
+  width:auto;
+  max-width:none;
+  object-fit:contain;
+  opacity:0;
+  pointer-events:none;
+}
+.sel-img.active{
+  opacity:1;
+  animation:selDrift 2.4s steps(1) infinite;
+}
+@keyframes selDrift{
+  0%  {transform:translateX(-50%) translateY(0px)   rotate(0deg)}
+  14% {transform:translateX(-53%) translateY(-8px)  rotate(.8deg)}
+  28% {transform:translateX(-49%) translateY(-14px) rotate(-.5deg)}
+  42% {transform:translateX(-52%) translateY(-6px)  rotate(1deg)}
+  57% {transform:translateX(-48%) translateY(-11px) rotate(-.7deg)}
+  71% {transform:translateX(-51%) translateY(-4px)  rotate(.4deg)}
+  85% {transform:translateX(-50%) translateY(-9px)  rotate(-.3deg)}
+  100%{transform:translateX(-50%) translateY(0px)   rotate(0deg)}
+}
+/* DOTS */
+.sel-dots{
+  position:absolute;
+  bottom:clamp(24px,3.5vw,40px);
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.sel-dot{
+  border-radius:50%;
+  background:rgba(255,255,255,.35);
+  transition:width .35s ease,height .35s ease,background .35s ease;
+  width:8px;height:8px;
+  cursor:pointer;
+  flex:none;
+}
+.sel-dot.active{
+  width:18px;height:18px;
+  background:#fff;
+}
+@media(max-width:820px){
+  .selector{padding:clamp(40px,6vw,70px) clamp(20px,5vw,40px);}
+  .sel-inner{
+    grid-template-columns:1fr;
+    grid-template-rows:auto auto auto;
+    gap:32px;
+  }
+  .sel-thumbs{flex-direction:row;gap:12px;justify-content:center;}
+  .sel-thumb{width:54px;height:68px;}
+  .sel-visual{height:clamp(260px,50vw,420px);order:2;}
+  .sel-info{order:3;}
+  .sel-num{font-size:clamp(70px,18vw,130px);}
+}
 
 /* VIDEOS EN CARPETAS */
-.videos-carpetas{width:100%;background:#57729c;}
+.videos-carpetas{width:100%;background:#ecece7;display:flex;justify-content:center;padding:0 clamp(80px,15vw,260px) clamp(20px,4vw,48px);margin-top:-120px;}
 .videos-carpetas img{display:block;width:100%;height:auto;}
 
 /* LUGARES */
 .lugares{
   width:100%;
-  background:#57729c;
+  background:#e8e3da;
 }
-.lugares video{
+.lugares-inner{
+  position:relative;
+  width:100%;
+  line-height:0;
+}
+.lugares-webp{
   display:block;
   width:100%;
   height:auto;
+}
+.lugares-video{
+  position:absolute;
+  top:52.3%;
+  left:50.3%;
+  transform:translate(-50%,-50%);
+  width:1028px;
+  height:478px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+}
+.lugares-video video{
+  display:block;
+  width:1023px;
+  height:auto;
+  flex-shrink:0;
 }
 
 /* LIGHTBOX EDITORIAL */
@@ -649,24 +804,59 @@ footer{
   </div>
 </section>
 
-<section class="modelos">
-  <div class="modelos-row">
-    <div class="modelo-item">
-      <img src="../home/3.png" alt="Modelo 3D 2">
+<section class="selector">
+  <div class="sel-inner">
+
+    <!-- Miniaturas -->
+    <div class="sel-thumbs">
+      <div class="sel-thumb active" data-index="0">
+        <img src="home/2.png" alt="Explorar">
+      </div>
+      <div class="sel-thumb" data-index="1">
+        <img src="home/3.png" alt="Personaje">
+      </div>
+      <div class="sel-thumb" data-index="2">
+        <img src="home/4.png" alt="Objeto">
+      </div>
     </div>
-    <div class="modelo-item active">
-      <img src="../home/2.png" alt="Modelo 3D 1">
+
+    <!-- Texto -->
+    <div class="sel-info">
+      <span class="sel-num" id="selNum">01</span>
+      <div class="sel-content" id="selContent">
+        <span class="sel-category" id="selCategory">Mundo visual</span>
+        <h2 class="sel-title" id="selTitle">Explorar</h2>
+        <p class="sel-desc" id="selDesc">Un acceso visual para recorrer el universo del proyecto desde sus elementos principales.</p>
+        <a href="#" class="sel-link" id="selLink">Ver más →</a>
+      </div>
     </div>
-    <div class="modelo-item">
-      <img src="../home/4.png" alt="Modelo 3D 3">
+
+    <!-- Imagen grande -->
+    <div class="sel-visual">
+      <img class="sel-img active" src="home/2.png" alt="Explorar" data-index="0">
+      <img class="sel-img" src="home/3.png" alt="Personaje" data-index="1">
+      <img class="sel-img" src="home/4.png" alt="Objeto" data-index="2">
     </div>
+
   </div>
+
+  <div class="sel-dots">
+    <div class="sel-dot active" data-index="0"></div>
+    <div class="sel-dot" data-index="1"></div>
+    <div class="sel-dot" data-index="2"></div>
+  </div>
+
 </section>
 
 <section class="lugares">
-  <video autoplay loop muted playsinline disablepictureinpicture>
-    <source src="../home/LugaresRetanima.mp4" type="video/mp4">
-  </video>
+  <div class="lugares-inner">
+    <img class="lugares-webp" src="home/RetanimaMateriales.webp" alt="Retanima">
+    <div class="lugares-video">
+      <video autoplay loop muted playsinline disablepictureinpicture>
+        <source src="home/LugaresRetanima.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
 </section>
 
 <section class="videos-carpetas">
@@ -807,11 +997,46 @@ elb.addEventListener('click', closeElb);
 document.getElementById('elb-x').addEventListener('click', e => { e.stopPropagation(); closeElb(); });
 elbImg.addEventListener('click', e => e.stopPropagation());
 
-document.querySelectorAll('.modelo-item').forEach(item => {
-  item.addEventListener('click', () => {
-    document.querySelectorAll('.modelo-item').forEach(i => i.classList.remove('active'));
-    item.classList.add('active');
+/* SELECTOR */
+const selData = [
+  { num:'01', category:'Mundo visual',  title:'Explorar',  desc:'Un acceso visual para recorrer el universo del proyecto desde sus elementos principales.',  href:'#', bg:'#a03a10' },
+  { num:'02', category:'Identidad',     title:'Personaje', desc:'Una pieza protagonista que funciona como punto de entrada al sistema gráfico.',             href:'#', bg:'#1a7a60' },
+  { num:'03', category:'Detalle',       title:'Objeto',    desc:'Un elemento secundario que aporta profundidad, textura y personalidad a la experiencia.',   href:'#', bg:'#2a2fa8' },
+];
+const selNum     = document.getElementById('selNum');
+const selContent = document.getElementById('selContent');
+const selCat     = document.getElementById('selCategory');
+const selTitle   = document.getElementById('selTitle');
+const selDesc    = document.getElementById('selDesc');
+const selLink    = document.getElementById('selLink');
+const selImgs    = document.querySelectorAll('.sel-img');
+const selThumbs  = document.querySelectorAll('.sel-thumb');
+const selDots    = document.querySelectorAll('.sel-dot');
+
+function activateSel(index) {
+  const d = selData[index];
+  document.querySelector('.selector').style.backgroundColor = d.bg;
+  selContent.classList.add('out');
+  setTimeout(() => {
+    selNum.textContent   = d.num;
+    selCat.textContent   = d.category;
+    selTitle.textContent = d.title;
+    selDesc.textContent  = d.desc;
+    selLink.href         = d.href;
+    selContent.classList.remove('out');
+  }, 200);
+  selImgs.forEach((img, i) => {
+    img.classList.toggle('active', i === index);
   });
+  selThumbs.forEach((th, i) => th.classList.toggle('active', i === index));
+  selDots.forEach((d, i) => d.classList.toggle('active', i === index));
+}
+
+selThumbs.forEach((thumb, i) => {
+  thumb.addEventListener('click', () => activateSel(i));
+});
+selDots.forEach((dot, i) => {
+  dot.addEventListener('click', () => activateSel(i));
 });
 elbLink.addEventListener('click', e => e.stopPropagation());
 
@@ -824,7 +1049,7 @@ document.addEventListener('mousemove', e => {
   curDot.style.left = mx + 'px';
   curDot.style.top = my + 'px';
 });
-document.querySelectorAll('a, button, .modelo-item, .ed-card, [role="button"]').forEach(el => {
+document.querySelectorAll('a, button, .sel-thumb, .ed-card, [role="button"]').forEach(el => {
   el.addEventListener('mouseenter', () => document.body.classList.add('cur-hover'));
   el.addEventListener('mouseleave', () => document.body.classList.remove('cur-hover'));
 });
