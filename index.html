@@ -368,7 +368,7 @@ nav.hdr-nav a:hover::after{width:100%;}
   width:clamp(300px,44vw,620px);
   padding:20px 24px;
 }
-.stamp-outer video{
+.stamp-outer video,.stamp-outer .team-preview{
   display:block;
   width:100%;
   position:relative;
@@ -636,7 +636,7 @@ footer{
     <div class="team-left">
       <div class="stamp-outer">
         <img class="stamp-frame" src="../home/estampa larga.png" alt="">
-        <video src="../home/Team Videoclip.mp4" autoplay loop muted playsinline preload="auto"></video>
+        <img class="team-preview" src="../home/TEAMPortada.png" alt="TEAM Lorde Videoclip">
       </div>
     </div>
     <div class="team-right">
@@ -644,7 +644,7 @@ footer{
       <span class="team-tipo">producción de videoclip</span>
       <h2 class="team-title">TEAM<br>LORDE</h2>
       <p class="team-desc">dirección de fotografía<br>y edición de contenido</p>
-      <a href="#" class="team-btn">ver más</a>
+      <a href="Claude/TEAM.html" class="team-btn">ver más</a>
     </div>
   </div>
 </section>
@@ -769,7 +769,7 @@ document.addEventListener('click', () => navProy.classList.remove('open'));
 
 document.getElementById('proy-team').addEventListener('click', () => {
   navProy.classList.remove('open');
-  openVlb('../home/Team Videoclip.mp4');
+  window.location.href = 'Claude/TEAM.html';
 });
 document.getElementById('proy-marciano').addEventListener('click', () => {
   navProy.classList.remove('open');

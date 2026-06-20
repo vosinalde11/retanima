@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TEAM Lorde — retánima</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Special+Elite&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;cursor:none!important}
+html,body{overflow-x:hidden}
+body{background:#1a1208;-webkit-font-smoothing:antialiased;color:#fff}
+#cur-dot{position:fixed;width:7px;height:7px;background:#c98f0a;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .15s ease;box-shadow:0 0 8px #c98f0a;}
+#cur-ring{position:fixed;width:36px;height:36px;border:2px solid #c98f0a;border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s ease,height .3s ease,opacity .3s;opacity:.7;}
+body.cur-hover #cur-ring{width:52px;height:52px;opacity:1;}
+body.cur-hover #cur-dot{transform:translate(-50%,-50%) scale(0);}
+
+header{position:fixed;top:16px;left:50%;transform:translateX(-50%);width:calc(100% - 48px);max-width:1300px;z-index:900;height:52px;background:rgba(26,18,8,.55);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border:1px solid rgba(255,255,255,.14);border-radius:40px;box-shadow:0 0 40px rgba(0,0,0,.50);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 clamp(20px,4vw,40px);}
+.hdr-logo{display:flex;align-items:center;text-decoration:none;margin-top:-5px;}
+.hdr-logo img{width:58px;height:58px;object-fit:contain;}
+nav.hdr-nav{display:flex;align-items:center;gap:clamp(28px,3.5vw,54px);margin-top:-5px;}
+nav.hdr-nav a{font-family:'Inter',sans-serif;font-size:13px;font-weight:300;letter-spacing:.03em;text-decoration:none;color:#fff;transition:opacity .2s;position:relative;}
+nav.hdr-nav a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:#fff;transition:width .2s ease;}
+nav.hdr-nav a:hover{opacity:.55}
+nav.hdr-nav a:hover::after{width:100%;}
+.nav-proyectos{position:relative;}
+.nav-proy-btn{font-family:'Inter',sans-serif;font-size:13px;font-weight:300;letter-spacing:.03em;color:#fff;background:none;border:none;cursor:pointer;padding:0;transition:opacity .2s;position:relative;top:-0.5px;}
+.nav-proy-btn::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:#fff;transition:width .2s ease;}
+.nav-proy-btn:hover{opacity:.55;}
+.nav-proy-btn:hover::after{width:100%;}
+.proy-dropdown{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:rgba(20,20,30,.92);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:6px 0;min-width:220px;visibility:hidden;opacity:0;transition:opacity .2s,visibility .2s;z-index:999;}
+.nav-proyectos.open .proy-dropdown{visibility:visible;opacity:1;}
+.proy-item{display:flex;align-items:center;gap:10px;padding:9px 16px;font-family:'Inter',sans-serif;font-size:12px;font-weight:300;letter-spacing:.05em;color:#fff;text-decoration:none;white-space:nowrap;background:none;border:none;width:100%;cursor:pointer;transition:background .15s;}
+.proy-item:hover{background:rgba(255,255,255,.08);}
+.proy-item .proy-tag{font-size:9px;letter-spacing:.1em;text-transform:uppercase;opacity:.4;margin-left:auto;}
+.proy-divider{height:1px;background:rgba(255,255,255,.1);margin:4px 0;}
+.hdr-lang{display:flex;justify-content:flex-end;align-items:center;gap:5px;font-family:'Inter',sans-serif;font-size:13px;font-weight:300;letter-spacing:.03em;color:#fff;background:none;border:none;padding:0;margin-top:-5px;}
+.hdr-lang span.active{font-weight:600}.hdr-lang .sep{opacity:.4}
+
+/* INTRO */
+.intro{
+  position:relative;
+  width:100%;
+  height:100vh;
+  display:flex;
+  align-items:flex-end;
+  justify-content:flex-start;
+  overflow:hidden;
+  background:#1a1208;
+}
+.intro-cover{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+}
+.intro-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom, rgba(0,0,0,.1) 40%, rgba(10,6,0,.85) 100%);
+  z-index:1;
+}
+.intro-info{
+  position:relative;
+  z-index:2;
+  padding:clamp(32px,5vw,72px);
+  padding-bottom:clamp(48px,6vw,88px);
+}
+.intro-label{
+  font-family:'Special Elite',monospace;
+  font-size:10px;letter-spacing:.22em;text-transform:uppercase;opacity:.5;
+  margin-bottom:14px;display:block;
+}
+.intro-title{
+  font-family:'Archivo Black',sans-serif;
+  font-size:clamp(52px,9vw,130px);
+  line-height:.88;letter-spacing:-.03em;
+  color:#fff;
+}
+.intro-sub{
+  font-family:'Special Elite',monospace;
+  font-size:clamp(13px,1.2vw,17px);
+  letter-spacing:.08em;opacity:.65;margin-top:18px;
+}
+.intro-scroll{
+  position:absolute;
+  bottom:32px;
+  right:clamp(24px,4vw,52px);
+  z-index:2;
+  font-family:"Special Elite",monospace;
+  font-size:10px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  opacity:.55;
+  animation:fadeIn 1.2s 1.2s both;
+}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:.55;transform:translateY(0)}}
+.dot{width:8px;height:8px;border-radius:50%;background:#c98f0a;animation:blink 1.4s steps(2) infinite;flex:none}
+@keyframes blink{50%{opacity:.25}}
+
+/* VIDEO SECTION */
+.video-section{
+  padding:clamp(48px,7vw,100px) clamp(24px,6vw,80px);
+}
+.section-head{
+  display:flex;align-items:baseline;gap:18px;
+  border-top:1px solid rgba(201,143,10,.25);
+  padding-top:22px;margin-bottom:clamp(28px,4vw,52px);
+}
+.section-head h2{
+  font-family:"Archivo Black",sans-serif;
+  font-size:clamp(20px,2.8vw,40px);letter-spacing:-.03em;
+}
+.section-head span{
+  font-family:"Special Elite",monospace;
+  font-size:10px;letter-spacing:.22em;text-transform:uppercase;opacity:.45;
+}
+.video-wrap{
+  position:relative;
+  width:100%;
+  max-width:1100px;
+  margin:0 auto;
+  border-radius:6px;
+  overflow:hidden;
+  box-shadow:0 32px 90px rgba(0,0,0,.55),0 0 0 1px rgba(201,143,10,.15);
+  background:#000;
+}
+.video-wrap video{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+/* CREDITS */
+.credits-section{
+  padding:0 clamp(24px,6vw,80px) clamp(60px,8vw,100px);
+  display:flex;gap:clamp(32px,6vw,100px);
+  flex-wrap:wrap;
+}
+.credit-block{
+  display:flex;flex-direction:column;gap:6px;
+  border-left:2px solid rgba(201,143,10,.4);
+  padding-left:clamp(14px,2vw,24px);
+}
+.credit-label{
+  font-family:"Special Elite",monospace;
+  font-size:9px;letter-spacing:.22em;text-transform:uppercase;opacity:.45;
+}
+.credit-value{
+  font-family:'Archivo Black',sans-serif;
+  font-size:clamp(15px,1.6vw,22px);letter-spacing:-.02em;
+}
+
+@media(max-width:700px){
+  .credits-section{flex-direction:column;gap:24px;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="../index.html" class="hdr-logo"><img src="../home/ReduccionLogo.svg" alt="retánima"></a>
+  <nav class="hdr-nav">
+    <a href="sobre-mi.html">sobre mí</a>
+    <span class="nav-proyectos" id="navProy">
+      <button class="nav-proy-btn">proyectos</button>
+      <div class="proy-dropdown">
+        <a class="proy-item" href="PUNKED - Galeria.html">PUNKED <span class="proy-tag">editorial</span></a>
+        <a class="proy-item" href="Silvestre - Galeria.html">SILVESTRE <span class="proy-tag">editorial</span></a>
+        <a class="proy-item" href="MundosFragmentados.html">MUNDOS FRAGMENTADOS <span class="proy-tag">editorial</span></a>
+        <div class="proy-divider"></div>
+        <a class="proy-item" href="TEAM.html">TEAM VIDEOCLIP <span class="proy-tag">video</span></a>
+        <a class="proy-item" href="../index.html">ROTOSCOPIA — ANIMACIÓN 2D <span class="proy-tag">video</span></a>
+        <a class="proy-item" href="../index.html">REGRESO INTERESTELAR <span class="proy-tag">video</span></a>
+      </div>
+    </span>
+    <a href="contacto.html">contacto</a>
+  </nav>
+  <button class="hdr-lang"><span class="active">ES</span><span class="sep">/</span><span>EN</span></button>
+</header>
+
+<!-- INTRO -->
+<section class="intro">
+  <img class="intro-cover" src="../home/TEAMPortada.png" alt="TEAM Lorde Videoclip">
+  <div class="intro-overlay"></div>
+</section>
+
+<!-- VIDEO -->
+<section class="video-section">
+  <div class="section-head">
+    <h2>Videoclip</h2>
+    <span>TEAM · Lorde</span>
+  </div>
+  <div class="video-wrap">
+    <video controls playsinline preload="metadata">
+      <source src="../home/Team Videoclip.mp4" type="video/mp4">
+    </video>
+  </div>
+</section>
+
+<!-- CRÉDITOS -->
+<section class="credits-section">
+  <div class="credit-block">
+    <span class="credit-label">año</span>
+    <span class="credit-value">2025</span>
+  </div>
+  <div class="credit-block">
+    <span class="credit-label">categoría</span>
+    <span class="credit-value">Producción de videoclip</span>
+  </div>
+  <div class="credit-block">
+    <span class="credit-label">rol</span>
+    <span class="credit-value">Dirección de fotografía<br>y edición de contenido</span>
+  </div>
+  <div class="credit-block">
+    <span class="credit-label">artista</span>
+    <span class="credit-value">Lorde</span>
+  </div>
+</section>
+
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
+<script>
+const curDot=document.getElementById('cur-dot'),curRing=document.getElementById('cur-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;curDot.style.left=mx+'px';curDot.style.top=my+'px';});
+document.querySelectorAll('a,button,video').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('cur-hover'));el.addEventListener('mouseleave',()=>document.body.classList.remove('cur-hover'));});
+(function a(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;curRing.style.left=rx+'px';curRing.style.top=ry+'px';requestAnimationFrame(a);})();
+const navProy=document.getElementById('navProy');
+navProy.addEventListener('click',e=>{e.stopPropagation();navProy.classList.toggle('open');});
+document.addEventListener('click',()=>navProy.classList.remove('open'));
+</script>
+</body>
+</html>
